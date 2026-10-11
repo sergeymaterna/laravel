@@ -11,7 +11,7 @@ WORKDIR /var/www/html
 COPY . .
 
 # 5. Встановлюємо залежності без інструментів розробки
-RUN composer install --no-dev --optimize-autoloader
+RUN composer install --no-dev --optimize-autoloader --ignore-platform-reqs
 
 # 6. Дозволяємо Apache працювати з файлами
 RUN chown -R www-data:www-data /var/www/html

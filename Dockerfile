@@ -1,5 +1,5 @@
 # 1. Беремо готовий офіційний образ PHP з веб-сервером Apache
-FROM php:8.3-apache
+FROM php:8.5-apache
 
 # 2. Встановлюємо Composer всередину образу
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer

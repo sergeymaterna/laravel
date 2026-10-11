@@ -25,7 +25,6 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: ./vendor/laravel/sail/runtimes/8.5/Dockerfile
           push: true
           tags: ghcr.io/${{ github.repository }}:latest
 

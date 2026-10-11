@@ -2,6 +2,9 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Post\StorePostRequest;
+use App\Http\Requests\Post\UpdatePostRequest;
+use App\Http\Resources\PostResource;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
@@ -66,14 +69,17 @@ class PostApiController extends Controller
 	}
 
 	// PUT/PATCH /api/v1/posts/{post}
-	public function update2(Request $request, Post $post): JsonResponse
+	public function update(UpdatePostRequest $request, Post $post): JsonResponse
 	{
-		$validated = $request->validate([
-			'title' => 'sometimes|string|max:255',
-			'content' => 'sometimes|string',
-		]);
 
-		$post->update($validated);
+		$this->authorize('update', $post);
+
+//		$validated = $request->validate([
+//			'title' => 'sometimes|string|max:255',
+//			'content' => 'sometimes|string',
+//		]);
+
+		$post->update($request->validated());
 
 		return response()->json([
 			'message' => 'Post updated successfully',

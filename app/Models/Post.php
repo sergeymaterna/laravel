@@ -64,6 +64,13 @@ class Post extends Model
 				$post->published_at = now();
 			}
 		});
+
+		static::creating(function (Post $post) {
+			if (!$post->user_id) {
+				// Тимчасово підставляємо ID першого користувача
+				$post->user_id = auth()->id() ?? User::first()?->id ?? 1;
+			}
+		});
 	}
 
 	// ==========================================

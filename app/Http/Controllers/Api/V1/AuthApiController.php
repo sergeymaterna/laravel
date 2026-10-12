@@ -16,6 +16,7 @@ class AuthApiController extends Controller
 
 	public function login(Request $request)
 	{
+		var_dump(1);
 		$request->validate([
 			'email' => ['required', 'email'],
 			'password' => ['required', 'string'],

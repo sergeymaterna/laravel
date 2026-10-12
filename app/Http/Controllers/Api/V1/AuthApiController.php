@@ -21,7 +21,7 @@ class AuthApiController extends Controller
 			'password' => ['required', 'string'],
 			'two_factor_code' => ['nullable', 'digits:6'], // Код з Microsoft Authenticator
 		]);
-
+dd(1);
 		$user = User::where('email', $request->email)->first();
 		$user->tokens()->delete();
 

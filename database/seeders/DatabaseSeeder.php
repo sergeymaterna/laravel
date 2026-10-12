@@ -6,6 +6,7 @@ use App\Models\Post;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,7 +19,10 @@ class DatabaseSeeder extends Seeder
 	{
 		// Твій код генерації тестових даних
 		User::factory(15)
-			->state(['role' => 'User'])
+			->state([
+				'role' => 'User',
+				'password' => Hash::make('password123')
+			])
 			->has(
 				Post::factory(5)->state(fn () => [
 					'title' => fake()->unique()->sentence(3),

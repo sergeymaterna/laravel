@@ -16,7 +16,11 @@ class AuthApiController extends Controller
 
 	public function login(Request $request)
 	{
-		var_dump(1);
+		return response()->json([
+			'access_token' => 1,
+			'token_type' => 'Bearer',
+		]);
+
 		$request->validate([
 			'email' => ['required', 'email'],
 			'password' => ['required', 'string'],

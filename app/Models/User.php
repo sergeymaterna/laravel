@@ -12,7 +12,7 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable
 {
 	// Traits — це "Behaviors" у стилі Laravel
-	use HasFactory, Notifiable, SoftDeletes, HasApiTokens, HasFactory, Notifiable, SoftDeletes;
+	use HasFactory, Notifiable, SoftDeletes, HasApiTokens;
 
 	/**
 	 * Поля, дозволені для масового заповнення (Mass Assignment)

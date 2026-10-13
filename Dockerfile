@@ -30,7 +30,8 @@ COPY . .
 RUN sed -i 's!/var/www/html!/var/www/html/public!g' /etc/apache2/sites-available/000-default.conf
 
 # Встановлюємо залежності без зайвих скриптів на етапі білду
-RUN composer install --no-dev --optimize-autoloader --no-scripts
+RUN composer install --optimize-autoloader --no-scripts
+#RUN composer install --no-dev --optimize-autoloader --no-scripts
 
 # Налаштовуємо права на папки
 RUN chown -R www-data:www-data /var/www/html \

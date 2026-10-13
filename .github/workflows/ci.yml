@@ -27,11 +27,11 @@ jobs:
           context: .
           push: true
           tags: ghcr.io/${{ github.repository }}:latest
-          script: |
-            docker exec laravel_app php artisan migrate --force
-            docker exec laravel_app php artisan db:seed --force
-      #            docker exec laravel_app php artisan migrate:fresh --seed --force
-      #            docker exec laravel_app php artisan db:seed --force
+#          script: |
+#            docker exec laravel_app php artisan migrate --force
+#            docker exec laravel_app php artisan db:seed --force
+  #            docker exec laravel_app php artisan migrate:fresh --seed --force
+  #            docker exec laravel_app php artisan db:seed --force
 
       - name: Trigger Render Deploy
         run: curl -X POST "${{ secrets.RENDER_DEPLOY_LARAVEL_HOOK }}"

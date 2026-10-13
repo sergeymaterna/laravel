@@ -20,18 +20,18 @@ class DatabaseSeeder extends Seeder
 		User::factory()
 			->state([
 				'role' => 'User',
-				'email' => Hash::make('matepna@gmail.com'),
+				'email' => 'matepna@gmail.com',
 				'password' => Hash::make('123456'),
 			])
 			->create();
 
-		User::factory(15)
+		User::factory(5)
 			->state([
 				'role' => 'User',
 				'password' => Hash::make('123456')
 			])
 			->has(
-				Post::factory(5)->state(fn () => [
+				Post::factory(3)->state(fn () => [
 					'title' => fake()->unique()->sentence(3),
 					'content' => fake()->paragraph(),
 					'slug' => fake()->unique()->slug()

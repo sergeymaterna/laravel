@@ -23,13 +23,6 @@ class DatabaseSeeder extends Seeder
 				'email' => Hash::make('matepna@gmail.com'),
 				'password' => Hash::make('123456'),
 			])
-			->has(
-				Post::factory(5)->state(fn () => [
-					'title' => fake()->unique()->sentence(3),
-					'content' => fake()->paragraph(),
-					'slug' => fake()->unique()->slug()
-				])
-			)
 			->create();
 
 		User::factory(15)

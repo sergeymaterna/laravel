@@ -19,7 +19,7 @@ class AuthApiController extends Controller
 		$request->validate([
 			'email' => ['required', 'email'],
 			'password' => ['required', 'string'],
-			'two_factor_code' => ['nullable', 'digits:6'], // Код з Microsoft Authenticator
+			'two_factor_code' => ['nullable', 'digits:6'],
 		]);
 
 		$user = User::where('email', $request->email)->first();

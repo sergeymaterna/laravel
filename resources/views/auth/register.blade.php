@@ -8,7 +8,7 @@
 	<div class="bg-red-100 text-red-700 p-3 mb-4 rounded text-sm">{{ $errors->first() }}</div>
 	@endif
 
-	<form method="POST" action="{{ route('register') }}">
+	<form method="POST" action="{{ route('register') }}" autocomplete="on">
 		@csrf
 
 		<!-- Ховаємо секретний ключ, щоб відправити його на бекенд при сабміті -->
@@ -29,7 +29,7 @@
 
 		<div class="mb-4">
 			<label class="block text-gray-700 text-sm font-bold mb-2">Пароль</label>
-			<input type="password" name="password" required class="w-full border p-2 rounded">
+			<input type="password" name="password" required class="w-full border p-2 rounded" autocomplete="new-password">
 		</div>
 
 		<div class="mb-4">
